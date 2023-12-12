@@ -1,43 +1,33 @@
 package com.apirest.apirestdev.entities;
 
+import com.apirest.apirestdev.enums.Statu;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import java.util.List;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "User")
-public class UserEntity{
-
+@Table(name = "Statu")
+public class StatuEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToOne
-    private RoleEntity rol_id;
-    
-    private String firstName;
+    @Enumerated(EnumType.STRING)
+    private Statu name;
 
-    private String lastName;
-
-    @Email(message = "the email must be valid")
-    private String mail;
-
-    private String password;
-
-    private String address;
-
-    @ManyToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "User")
     private List<OrderEntity> orders;
 }
