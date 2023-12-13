@@ -1,18 +1,9 @@
 package com.apirest.apirestdev.entities;
 
-import com.apirest.apirestdev.enums.ERole;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
@@ -29,7 +20,8 @@ public class SellerEntity {
     private String lastName;
 
     @ManyToOne
-    private RoleEntity rol_id;
+    @JoinColumn(name = "role_id")
+    private RoleEntity role;
 
     @Email(message = "the email must be valid")
     private String mail;

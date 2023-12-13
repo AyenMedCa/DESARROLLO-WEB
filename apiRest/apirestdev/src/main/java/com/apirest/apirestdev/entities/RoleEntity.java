@@ -1,14 +1,10 @@
 package com.apirest.apirestdev.entities;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import jakarta.persistence.*;
+import lombok.*;
+import java.util.*;
+
+
 import com.apirest.apirestdev.enums.ERole;
 @Data
 @NoArgsConstructor
@@ -22,4 +18,10 @@ public class RoleEntity {
 
    @Enumerated(EnumType.STRING)
    private ERole name;
+   
+   @OneToMany(mappedBy = "role")
+   private List<UserEntity> users;
+
+   @OneToMany(mappedBy = "role")
+   private List<SellerEntity> sellers;
 }

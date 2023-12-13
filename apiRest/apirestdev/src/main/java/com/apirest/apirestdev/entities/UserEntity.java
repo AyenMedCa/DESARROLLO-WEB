@@ -1,17 +1,9 @@
 package com.apirest.apirestdev.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import java.util.List;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import lombok.*;
+import java.util.*;
 
 @Data
 @AllArgsConstructor
@@ -25,7 +17,8 @@ public class UserEntity{
     private Integer id;
 
     @ManyToOne
-    private RoleEntity rol_id;
+    @JoinColumn(name = "rol_id")
+    private RoleEntity role;
     
     private String firstName;
 
@@ -39,5 +32,8 @@ public class UserEntity{
     private String address;
 
     @ManyToMany(mappedBy = "users")
-    private List<OrderEntity> orders;
+    private Set<OrderEntity> orders;
+
+    @ManyToMany(mappedBy = "users")
+    private Set<ReviewEntity> review;
 }
