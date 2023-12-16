@@ -4,6 +4,7 @@ package com.apirest.apirestdev.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
+import java.util.*;
 
 @Data
 @AllArgsConstructor
@@ -26,6 +27,8 @@ public class SellerEntity {
     @Email(message = "the email must be valid")
     private String mail;
 
+    private String password;
+
     private String description;
 
     private String address;
@@ -33,4 +36,8 @@ public class SellerEntity {
     private Float rating;
 
     private Integer number_phone;
+
+    @OneToMany(mappedBy = "seller")
+    private List<ProductEntity> products;
+    
 }

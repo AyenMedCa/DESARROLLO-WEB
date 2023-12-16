@@ -14,9 +14,9 @@ public class ProductEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @OneToMany(mappedBy = "role")
+    @ManyToOne
+    @JoinColumn(name = "seller_id")
     private SellerEntity seller;
-
 
     @ManyToOne
     @JoinColumn(name = "offer_id")
