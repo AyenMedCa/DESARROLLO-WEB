@@ -1,11 +1,18 @@
 package com.apirest.apirestdev.dtos;
 
+import java.util.List;
 
-import com.apirest.apirestdev.enums.ERole;
+import lombok.*;
 
-public record RoleDto(
-    Integer id,
-    ERole name
-) {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class RoleDto {
+
+    private Integer id;
+    private String name;
+    private List<UserDto> users;
+    private List<SellerDto> sellers;
     
 }

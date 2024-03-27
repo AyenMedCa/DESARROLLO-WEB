@@ -8,6 +8,7 @@ import java.util.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 @Table(name = "Product")
 public class ProductEntity {
     @Id

@@ -7,5 +7,5 @@ import com.apirest.apirestdev.entities.ProductEntity;
 
 public interface ProductService {
     ProductDto create(ProductEntity product);
-    //Optional<ProductDto> update(Integer id, ProductDto product);
+    Optional<ProductDto> update(Integer id, ProductDto product);
 }

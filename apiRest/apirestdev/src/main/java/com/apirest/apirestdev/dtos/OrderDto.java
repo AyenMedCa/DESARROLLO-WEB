@@ -1,11 +1,17 @@
 package com.apirest.apirestdev.dtos;
 
-import java.time.LocalDate;
+import java.util.List;
 
-public record OrderDto(
-    Integer id,
-    LocalDate order_date,
-    StatuDto statu
-) {
-    
+import lombok.*;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+
+public class OrderDto {
+    private Integer id;
+    private List<UserDto> users;
+    private String order_date;
+    private Integer statu_id;
 }

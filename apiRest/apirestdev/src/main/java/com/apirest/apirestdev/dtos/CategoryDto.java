@@ -1,10 +1,11 @@
 package com.apirest.apirestdev.dtos;
 
-import com.apirest.apirestdev.enums.Category;
-
-public record CategoryDto(
-    Integer id,
-    Category name
-) {
-    
+import lombok.*;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class CategoryDto {
+    private Integer id;
+    private String name;
 }

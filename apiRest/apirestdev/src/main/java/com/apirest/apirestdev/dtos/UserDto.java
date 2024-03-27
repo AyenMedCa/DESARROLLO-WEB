@@ -1,11 +1,20 @@
 package com.apirest.apirestdev.dtos;
 
-public record UserDto(
-    Integer id,
-    String firstName,
-    String lastName,
-    String mail,
-    String address
-) {
-    
+import java.util.Set;
+
+import lombok.*;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+
+public class UserDto {
+    private Integer id;
+    private String role;
+    private String fn;
+    private String ln;
+    private String mail;
+    private Set<OrderDto> orders;
+    private Set<ReviewDto> reviews;
 }

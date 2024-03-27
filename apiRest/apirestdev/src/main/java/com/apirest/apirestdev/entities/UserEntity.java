@@ -35,5 +35,5 @@ public class UserEntity{
     private Set<OrderEntity> orders;
 
     @ManyToMany(mappedBy = "users")
-    private Set<ReviewEntity> review;
+    private Set<ReviewEntity> reviews;
 }

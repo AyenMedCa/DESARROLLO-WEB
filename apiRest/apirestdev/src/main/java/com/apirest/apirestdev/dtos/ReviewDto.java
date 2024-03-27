@@ -1,12 +1,19 @@
 package com.apirest.apirestdev.dtos;
+import java.util.Set;
 
-import java.time.LocalDate;
+import lombok.*;
 
-public record ReviewDto(
-    Integer id,
-    Integer rating,
-    String comment,
-    LocalDate timestamp
-) {
-    
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+
+public class ReviewDto {
+    private Integer id;
+    private Set<ProductDto> products;
+    private Set<UserDto> users;
+    private Integer rating;
+    private String comment;
+    private String timestamp;
 }

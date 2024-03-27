@@ -1,10 +1,15 @@
 package com.apirest.apirestdev.dtos;
 
-import com.apirest.apirestdev.enums.Statu;
+import java.util.List;
 
-public record StatuDto(
-    Integer id,
-    Statu name
-) {
-    
+import lombok.*;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+
+public class StatuDto {
+    private Integer id;
+    private String name;
+    private List<OrderDto> orders;
 }

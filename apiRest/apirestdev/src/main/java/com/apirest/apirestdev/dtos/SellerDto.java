@@ -1,15 +1,23 @@
 package com.apirest.apirestdev.dtos;
 
-public record SellerDto(
-        Integer id, 
-        String firstname, 
-        String lastname,
-        RoleDto role, 
-        String mail, 
-        String description, 
-        String address, 
-        Float rating, 
-        Integer number_phone
-){
-    
+import java.util.List;
+
+import lombok.*;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+
+public class SellerDto {
+    private Integer id;
+    private String fn;
+    private String ln;
+    private String role;
+    private String mail;
+    private String description;
+    private String address;
+    private Float rating;
+    private Integer number_phone;
+    private List<ProductDto> products;
 }

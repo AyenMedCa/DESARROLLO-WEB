@@ -2,11 +2,17 @@ package com.apirest.apirestdev.dtos;
 
 import java.util.Set;
 
-public record OrderDetailDto(
-    Integer id,
-    Set<ProductDto> products,
-    Integer quantity,
-    Float subtotal
-) {
-    
+import lombok.*;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+
+public class OrderDetailDto {
+    private Integer id;
+    private Integer Order_id;
+    private Set<ProductDto> products;
+    private Integer quantity;
+    private Float subtotal; 
 }
